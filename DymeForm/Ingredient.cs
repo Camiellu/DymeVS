@@ -1,14 +1,22 @@
 ﻿namespace DymeForm
 {
-    public class Ingredient
+    public class Ingredient : IFilterPossibility
     {
         private string name;
-        private Allergy allergy;
 
-        public Ingredient(string name, Allergy allergy)
+        public Ingredient(string name)
         {
             this.Name = name;
-            this.Allergy1 = allergy;
+        }
+
+        public override string ToString()
+        {
+            return name;
+        }
+
+        public bool Filter(IFilterPossibility i)
+        {
+            throw new System.NotImplementedException();
         }
 
         public string Name
@@ -17,10 +25,5 @@
             set => name = value;
         }
 
-        public Allergy Allergy1
-        {
-            get => allergy;
-            set => allergy = value;
-        }
     }
 }

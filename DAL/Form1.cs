@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DymeForm
+namespace DAL
 {
     public partial class Form1 : Form
     {
@@ -16,11 +16,5 @@ namespace DymeForm
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }

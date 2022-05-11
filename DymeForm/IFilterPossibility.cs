@@ -2,6 +2,6 @@
 {
     public interface IFilterPossibility
     {
-        void Filter();
+        bool Filter(IFilterPossibility i);
     }
 }

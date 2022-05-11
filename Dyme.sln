@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31911.196
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DymeForm", "DymeForm\DymeForm.csproj", "{89968B50-B77E-4123-870A-A88B54ED2AA3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "DymeForm\GUI.csproj", "{89968B50-B77E-4123-870A-A88B54ED2AA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccesLayer", "DataAccesLayer\DataAccesLayer.csproj", "{AE48D016-F0BC-401F-97EF-A05DE03F75B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{C57AE5C4-0E47-4C45-B582-FF256A4844B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{89968B50-B77E-4123-870A-A88B54ED2AA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89968B50-B77E-4123-870A-A88B54ED2AA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89968B50-B77E-4123-870A-A88B54ED2AA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE48D016-F0BC-401F-97EF-A05DE03F75B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE48D016-F0BC-401F-97EF-A05DE03F75B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE48D016-F0BC-401F-97EF-A05DE03F75B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE48D016-F0BC-401F-97EF-A05DE03F75B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C57AE5C4-0E47-4C45-B582-FF256A4844B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C57AE5C4-0E47-4C45-B582-FF256A4844B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C57AE5C4-0E47-4C45-B582-FF256A4844B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C57AE5C4-0E47-4C45-B582-FF256A4844B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

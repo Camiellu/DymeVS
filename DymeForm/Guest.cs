@@ -16,6 +16,13 @@ namespace DymeForm
             this.LastName = lastName;
             this.DateOfBirth = dateOfBirth;
         }
+        public Guest(string firstName, string lastName, DateTime dateOfBirth, List<Allergy> allergies)
+        {
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.DateOfBirth = dateOfBirth;
+            this.allergies = allergies;
+        }
 
         public string FirstName
         {
