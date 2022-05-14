@@ -1,6 +1,6 @@
 ﻿namespace DymeForm
 {
-    public class Ingredient : IFilterPossibility
+    public class Ingredient
     {
         private string name;
 
@@ -12,11 +12,6 @@
         public override string ToString()
         {
             return name;
-        }
-
-        public bool Filter(IFilterPossibility i)
-        {
-            throw new System.NotImplementedException();
         }
 
         public string Name

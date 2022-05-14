@@ -119,7 +119,7 @@ namespace DymeForm
             this.checkboxSelectAllergy.FormattingEnabled = true;
             this.checkboxSelectAllergy.Location = new System.Drawing.Point(256, 101);
             this.checkboxSelectAllergy.Name = "checkboxSelectAllergy";
-            this.checkboxSelectAllergy.Size = new System.Drawing.Size(120, 109);
+            this.checkboxSelectAllergy.Size = new System.Drawing.Size(136, 109);
             this.checkboxSelectAllergy.TabIndex = 9;
             this.checkboxSelectAllergy.ThreeDCheckBoxes = true;
             // 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DymeForm
 {
-    public class Guest : IGetFirstLetter
+    public class Guest
     {
         private string firstName;
         private string lastName;
@@ -21,7 +21,7 @@ namespace DymeForm
             this.FirstName = firstName;
             this.LastName = lastName;
             this.DateOfBirth = dateOfBirth;
-            this.allergies = allergies;
+            this.Allergies = allergies;
         }
 
         public string FirstName
@@ -42,22 +42,23 @@ namespace DymeForm
             set => dateOfBirth = value;
         }
 
+        public List<Allergy> Allergies
+        {
+            get => allergies;
+            set => allergies = value;
+        }
+
         public bool TryAddAllergy(Allergy allergy)
         {
-            foreach (var a in allergies)
+            foreach (var a in Allergies)
             {
                 if (a.Name.Equals(allergy.Name))
                 {
                     return false;
                 }
             }
-            this.allergies.Add(allergy);
+            this.Allergies.Add(allergy);
             return true;
-        }
-
-        public string GetFirstLetter()
-        {
-            return this.FirstName.Substring(0, 1);
         }
     }
 }

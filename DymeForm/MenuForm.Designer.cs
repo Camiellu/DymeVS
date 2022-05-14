@@ -70,10 +70,11 @@ namespace DymeForm
             // 
             // checkedIngredientFilter
             // 
+            this.checkedIngredientFilter.CheckOnClick = true;
             this.checkedIngredientFilter.FormattingEnabled = true;
             this.checkedIngredientFilter.Location = new System.Drawing.Point(9, 56);
             this.checkedIngredientFilter.Name = "checkedIngredientFilter";
-            this.checkedIngredientFilter.Size = new System.Drawing.Size(135, 289);
+            this.checkedIngredientFilter.Size = new System.Drawing.Size(132, 289);
             this.checkedIngredientFilter.TabIndex = 2;
             // 
             // lblIngredientFilter
@@ -95,12 +96,12 @@ namespace DymeForm
             this.panel1.Controls.Add(this.checkedIngredientFilter);
             this.panel1.Location = new System.Drawing.Point(15, 44);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(234, 356);
+            this.panel1.Size = new System.Drawing.Size(231, 356);
             this.panel1.TabIndex = 4;
             // 
             // btnConfirmFilters
             // 
-            this.btnConfirmFilters.Location = new System.Drawing.Point(150, 282);
+            this.btnConfirmFilters.Location = new System.Drawing.Point(147, 282);
             this.btnConfirmFilters.Name = "btnConfirmFilters";
             this.btnConfirmFilters.Size = new System.Drawing.Size(75, 63);
             this.btnConfirmFilters.TabIndex = 4;

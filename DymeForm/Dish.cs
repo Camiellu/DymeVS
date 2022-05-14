@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DymeForm
 {
-    public class Dish : IGetFirstLetter 
+    public class Dish
     {
         private string name;
         private double price;
@@ -55,11 +55,20 @@ namespace DymeForm
             set => ingredients = value;
         }
 
-
-        public string GetFirstLetter()
+        // Checks if this Dish contains filtered item
+        public bool FilterDish(List<IFilterPossibility> filters)
         {
-            return this.Name.Substring(0, 1);
+
+            foreach (var f in filters)
+            {
+                if (!f.Filter(this))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
+
         public bool TryAddAllergy(Allergy allergy)
         {
             foreach (var a in Allergies)

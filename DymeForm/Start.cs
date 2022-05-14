@@ -44,7 +44,7 @@ namespace DymeForm
                 allergies.Add(a);
             }
             MenuForm menuForm = new MenuForm();
-            menuForm.guest = new Guest(firstName, lastName, dateOfBirth, allergies);
+            menuForm.Guest = new Guest(firstName, lastName, dateOfBirth, allergies);
             menuForm.Restaurant = Restaurant;
             menuForm.Show();
             this.Hide();

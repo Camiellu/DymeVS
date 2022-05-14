@@ -14,38 +14,54 @@ namespace DymeForm
     {
         private static DBConnection dB = new DBConnection();
         public Restaurant Restaurant { get; set; }
-        public Guest guest { get; set; }
+        public Guest Guest { get; set; }
+        public List<Ingredient> CheckedIngredients = new List<Ingredient>();
+
         public MenuForm()
         {
             InitializeComponent();
-            Start();
-        }
-
-        private void Start()
-        {
 
         }
 
-        // Actions when form closes
-        private void MenuForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            this.Hide();
-            Start start = new Start();
-            start.Show();
-        }
 
 
-        // Actions when loading form
-        private void MenuForm_Load(object sender, EventArgs e)
+
+        private void btnConfirmFilters_Click(object sender, EventArgs e)
         {
-            lblGuestInfo.Text = $"Welkom {guest.FirstName}!";
-            foreach (var m in Restaurant.Menus)
+            // Check if a menu is selected
+            if (comboSelectMenu.SelectedIndex > -1)
             {
-                comboSelectMenu.Items.Add(m.ToString());
+                listDishes.Items.Clear();
+                CheckedIngredients.Clear();
+                foreach (Ingredient i in checkedIngredientFilter.CheckedItems)
+                {
+                    CheckedIngredients.Add(i);
+                }
+
+                AllergyFilter allergyFilter = new AllergyFilter(Guest.Allergies);
+                IngredientFilter ingredientFilter = new IngredientFilter(CheckedIngredients);
+                List<IFilterPossibility> filters = new List<IFilterPossibility> { allergyFilter, ingredientFilter };
+                Menu menu = (Menu)comboSelectMenu.SelectedItem;
+                foreach (var dish in menu.FilterDishes(filters))
+                {
+                    listDishes.Items.Add(dish);
+                }
+            }
+            else
+            {
+                MessageBox.Show("U moet een menu selecteren!");
             }
 
+        }
+
+
+        private void FillMenuAndIngredients()
+        {
+            comboSelectMenu.Items.Clear();
+            checkedIngredientFilter.Items.Clear();
             foreach (var m in Restaurant.Menus)
             {
+                comboSelectMenu.Items.Add(m);
                 foreach (var d in m.Dishes)
                 {
                     foreach (var i in d.Ingredients)
@@ -59,25 +75,21 @@ namespace DymeForm
             }
         }
 
-        private void btnConfirmFilters_Click(object sender, EventArgs e)
+        // Actions when loading form
+        private void MenuForm_Load(object sender, EventArgs e)
         {
-            List<Dish> dishes = new List<Dish>();
-            List<Ingredient> ingredients = new List<Ingredient>();
-            foreach (Ingredient i in checkedIngredientFilter.CheckedItems)
-            {
-                ingredients.Add(i);
-            }
-            listDishes.Items.Clear();
-            foreach (var m in Restaurant.Menus)
-            {
-                if (comboSelectMenu.SelectedIndex > -1 && m.Name.Equals(comboSelectMenu.SelectedItem.ToString()))
-                {
-                    foreach (var d in m.Dishes)
-                    {
-                        listDishes.Items.Add(d.ToString());
-                    }
-                }
-            }
+            lblGuestInfo.Text = $"Welkom {Guest.FirstName}!";
+            FillMenuAndIngredients();
+            // Load menus and ingredients 
+
+        }
+
+        // Actions when form closes
+        private void MenuForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            Start start = new Start();
+            start.Show();
         }
     }
 }

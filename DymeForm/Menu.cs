@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace DymeForm
 {
@@ -28,6 +29,21 @@ namespace DymeForm
         {
             get => dishes;
             set => dishes = value;
+        }
+
+        // Checks dishes in menu if they contain filtered item, returns filtered list
+        public List<Dish> FilterDishes(List<IFilterPossibility> filters)
+        {
+            List<Dish> filterDishes = new List<Dish>();
+
+            foreach (var dish in Dishes)
+            {
+                if (dish.FilterDish(filters))
+                {
+                    filterDishes.Add(dish);
+                }
+            }
+            return filterDishes;
         }
     }
 }

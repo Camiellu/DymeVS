@@ -2,7 +2,7 @@
 
 namespace DymeForm
 {
-    public class Allergy : IFilterPossibility
+    public class Allergy
     {
         private string name;
         private List<Ingredient> ingredients;
@@ -10,11 +10,6 @@ namespace DymeForm
         public override string ToString()
         {
             return name;
-        }
-
-        public bool Filter(IFilterPossibility i)
-        {
-            throw new System.NotImplementedException();
         }
 
         public Allergy(string name, List<Ingredient> ingredients)

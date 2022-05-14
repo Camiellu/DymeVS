@@ -49,6 +49,8 @@
     <Compile Include="Allergy.cs" />
     <Compile Include="DBConnection.cs" />
     <Compile Include="Dish.cs" />
+    <Compile Include="Filter\AllergyFilter.cs" />
+    <Compile Include="Filter\IngredientFilter.cs" />
     <Compile Include="MenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,7 +64,7 @@
       <DependentUpon>Start.cs</DependentUpon>
     </Compile>
     <Compile Include="Guest.cs" />
-    <Compile Include="IFilterPossibility.cs" />
+    <Compile Include="Filter\IFilterPossibility.cs" />
     <Compile Include="IGetFirstLetter.cs" />
     <Compile Include="Ingredient.cs" />
     <Compile Include="Menu.cs" />
