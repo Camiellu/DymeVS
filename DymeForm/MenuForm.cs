@@ -91,5 +91,15 @@ namespace DymeForm
             Start start = new Start();
             start.Show();
         }
+
+        private void listDishes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            listOrder.Items.Add(listDishes.SelectedItem);
+        }
+
+        private void listOrder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            listOrder.Items.Remove(listOrder.SelectedItem);
+        }
     }
 }

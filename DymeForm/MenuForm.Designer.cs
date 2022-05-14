@@ -38,6 +38,9 @@ namespace DymeForm
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnConfirmFilters = new System.Windows.Forms.Button();
             this.listDishes = new System.Windows.Forms.ListBox();
+            this.lblFilteredDishes = new System.Windows.Forms.Label();
+            this.listOrder = new System.Windows.Forms.ListBox();
+            this.lblOrderList = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -112,10 +115,38 @@ namespace DymeForm
             // listDishes
             // 
             this.listDishes.FormattingEnabled = true;
-            this.listDishes.Location = new System.Drawing.Point(278, 44);
+            this.listDishes.Location = new System.Drawing.Point(278, 57);
             this.listDishes.Name = "listDishes";
-            this.listDishes.Size = new System.Drawing.Size(120, 355);
+            this.listDishes.Size = new System.Drawing.Size(120, 225);
             this.listDishes.TabIndex = 5;
+            this.listDishes.SelectedIndexChanged += new System.EventHandler(this.listDishes_SelectedIndexChanged);
+            // 
+            // lblFilteredDishes
+            // 
+            this.lblFilteredDishes.AutoSize = true;
+            this.lblFilteredDishes.Location = new System.Drawing.Point(275, 41);
+            this.lblFilteredDishes.Name = "lblFilteredDishes";
+            this.lblFilteredDishes.Size = new System.Drawing.Size(60, 13);
+            this.lblFilteredDishes.TabIndex = 6;
+            this.lblFilteredDishes.Text = "Gerechten:";
+            // 
+            // listOrder
+            // 
+            this.listOrder.FormattingEnabled = true;
+            this.listOrder.Location = new System.Drawing.Point(404, 57);
+            this.listOrder.Name = "listOrder";
+            this.listOrder.Size = new System.Drawing.Size(120, 225);
+            this.listOrder.TabIndex = 7;
+            this.listOrder.SelectedIndexChanged += new System.EventHandler(this.listOrder_SelectedIndexChanged);
+            // 
+            // lblOrderList
+            // 
+            this.lblOrderList.AutoSize = true;
+            this.lblOrderList.Location = new System.Drawing.Point(401, 41);
+            this.lblOrderList.Name = "lblOrderList";
+            this.lblOrderList.Size = new System.Drawing.Size(55, 13);
+            this.lblOrderList.TabIndex = 8;
+            this.lblOrderList.Text = "Bestelling:";
             // 
             // MenuForm
             // 
@@ -123,6 +154,9 @@ namespace DymeForm
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblOrderList);
+            this.Controls.Add(this.listOrder);
+            this.Controls.Add(this.lblFilteredDishes);
             this.Controls.Add(this.listDishes);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblGuestInfo);
@@ -148,5 +182,8 @@ namespace DymeForm
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ListBox listDishes;
         private System.Windows.Forms.Button btnConfirmFilters;
+        private System.Windows.Forms.Label lblFilteredDishes;
+        private System.Windows.Forms.ListBox listOrder;
+        private System.Windows.Forms.Label lblOrderList;
     }
 }

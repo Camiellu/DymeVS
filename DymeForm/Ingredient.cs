@@ -1,6 +1,6 @@
 ﻿namespace DymeForm
 {
-    public class Ingredient
+    public class Ingredient 
     {
         private string name;
 
