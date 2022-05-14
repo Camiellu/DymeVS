@@ -53,8 +53,9 @@
     <Compile Include="Filter\AllergyFilter.cs" />
     <Compile Include="Filter\IFilterPossibility.cs" />
     <Compile Include="Filter\IngredientFilter.cs" />
+    <Compile Include="GetDiscount\GetDishDiscount.cs" />
     <Compile Include="Guest.cs" />
-    <Compile Include="IGetFirstLetter.cs" />
+    <Compile Include="GetDiscount\IGetDiscount.cs" />
     <Compile Include="Ingredient.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="MenuForm.cs">
@@ -63,6 +64,7 @@
     <Compile Include="MenuForm.Designer.cs">
       <DependentUpon>MenuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Order.cs" />
     <Compile Include="Restaurant.cs" />
     <Compile Include="Start.cs">
       <SubType>Form</SubType>
@@ -106,5 +108,6 @@
       <Name>DataAccesLayer</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

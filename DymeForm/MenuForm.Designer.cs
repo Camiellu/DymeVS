@@ -41,7 +41,15 @@ namespace DymeForm
             this.lblFilteredDishes = new System.Windows.Forms.Label();
             this.listOrder = new System.Windows.Forms.ListBox();
             this.lblOrderList = new System.Windows.Forms.Label();
+            this.btnMakeOrder = new System.Windows.Forms.Button();
+            this.lblGetPrice = new System.Windows.Forms.Label();
+            this.lblGetDiscount = new System.Windows.Forms.Label();
+            this.lblTotalPrice = new System.Windows.Forms.Label();
+            this.panelPriceInfo = new System.Windows.Forms.Panel();
+            this.lblDiscountInfo = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            this.panelPriceInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // comboSelectMenu
@@ -104,6 +112,7 @@ namespace DymeForm
             // 
             // btnConfirmFilters
             // 
+            this.btnConfirmFilters.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnConfirmFilters.Location = new System.Drawing.Point(147, 282);
             this.btnConfirmFilters.Name = "btnConfirmFilters";
             this.btnConfirmFilters.Size = new System.Drawing.Size(75, 63);
@@ -148,12 +157,82 @@ namespace DymeForm
             this.lblOrderList.TabIndex = 8;
             this.lblOrderList.Text = "Bestelling:";
             // 
+            // btnMakeOrder
+            // 
+            this.btnMakeOrder.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMakeOrder.Location = new System.Drawing.Point(404, 289);
+            this.btnMakeOrder.Name = "btnMakeOrder";
+            this.btnMakeOrder.Size = new System.Drawing.Size(120, 36);
+            this.btnMakeOrder.TabIndex = 9;
+            this.btnMakeOrder.Text = "Bereken prijs";
+            this.btnMakeOrder.UseVisualStyleBackColor = true;
+            this.btnMakeOrder.Click += new System.EventHandler(this.btnMakeOrder_Click);
+            // 
+            // lblGetPrice
+            // 
+            this.lblGetPrice.AutoSize = true;
+            this.lblGetPrice.Location = new System.Drawing.Point(4, 2);
+            this.lblGetPrice.Name = "lblGetPrice";
+            this.lblGetPrice.Size = new System.Drawing.Size(80, 13);
+            this.lblGetPrice.TabIndex = 10;
+            this.lblGetPrice.Text = "Prijs gerechten:";
+            // 
+            // lblGetDiscount
+            // 
+            this.lblGetDiscount.AutoSize = true;
+            this.lblGetDiscount.Location = new System.Drawing.Point(3, 15);
+            this.lblGetDiscount.Name = "lblGetDiscount";
+            this.lblGetDiscount.Size = new System.Drawing.Size(61, 13);
+            this.lblGetDiscount.TabIndex = 11;
+            this.lblGetDiscount.Text = "Uw korting:";
+            // 
+            // lblTotalPrice
+            // 
+            this.lblTotalPrice.AutoSize = true;
+            this.lblTotalPrice.Location = new System.Drawing.Point(3, 35);
+            this.lblTotalPrice.Name = "lblTotalPrice";
+            this.lblTotalPrice.Size = new System.Drawing.Size(61, 13);
+            this.lblTotalPrice.TabIndex = 12;
+            this.lblTotalPrice.Text = "Totaalprijs: ";
+            // 
+            // panelPriceInfo
+            // 
+            this.panelPriceInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelPriceInfo.Controls.Add(this.panel2);
+            this.panelPriceInfo.Controls.Add(this.lblGetPrice);
+            this.panelPriceInfo.Controls.Add(this.lblTotalPrice);
+            this.panelPriceInfo.Controls.Add(this.lblGetDiscount);
+            this.panelPriceInfo.Location = new System.Drawing.Point(530, 182);
+            this.panelPriceInfo.Name = "panelPriceInfo";
+            this.panelPriceInfo.Size = new System.Drawing.Size(200, 100);
+            this.panelPriceInfo.TabIndex = 13;
+            // 
+            // lblDiscountInfo
+            // 
+            this.lblDiscountInfo.AutoSize = true;
+            this.lblDiscountInfo.Location = new System.Drawing.Point(527, 56);
+            this.lblDiscountInfo.Name = "lblDiscountInfo";
+            this.lblDiscountInfo.Size = new System.Drawing.Size(191, 26);
+            this.lblDiscountInfo.TabIndex = 14;
+            this.lblDiscountInfo.Text = "Ontvang 5% korting op gerechten met \r\ndezelfde eerste letter als uw voornaam!";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel2.Location = new System.Drawing.Point(6, 31);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(177, 1);
+            this.panel2.TabIndex = 13;
+            // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblDiscountInfo);
+            this.Controls.Add(this.panelPriceInfo);
+            this.Controls.Add(this.btnMakeOrder);
             this.Controls.Add(this.lblOrderList);
             this.Controls.Add(this.listOrder);
             this.Controls.Add(this.lblFilteredDishes);
@@ -167,6 +246,8 @@ namespace DymeForm
             this.Load += new System.EventHandler(this.MenuForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panelPriceInfo.ResumeLayout(false);
+            this.panelPriceInfo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,5 +266,12 @@ namespace DymeForm
         private System.Windows.Forms.Label lblFilteredDishes;
         private System.Windows.Forms.ListBox listOrder;
         private System.Windows.Forms.Label lblOrderList;
+        private System.Windows.Forms.Button btnMakeOrder;
+        private System.Windows.Forms.Label lblGetPrice;
+        private System.Windows.Forms.Label lblGetDiscount;
+        private System.Windows.Forms.Label lblTotalPrice;
+        private System.Windows.Forms.Panel panelPriceInfo;
+        private System.Windows.Forms.Label lblDiscountInfo;
+        private System.Windows.Forms.Panel panel2;
     }
 }

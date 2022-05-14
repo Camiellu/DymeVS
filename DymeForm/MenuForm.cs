@@ -101,5 +101,26 @@ namespace DymeForm
         {
             listOrder.Items.Remove(listOrder.SelectedItem);
         }
+
+        private void btnMakeOrder_Click(object sender, EventArgs e)
+        {
+            List<Dish> dishes = new List<Dish>();
+            double price = 0;
+            foreach (Dish dish in listOrder.Items)
+            {
+                dishes.Add(dish);
+                price += dish.Price;
+
+            }
+
+            lblGetPrice.Text = $"Prijs gerechten: €{Math.Round(price, 3)}";
+            IGetDiscount getDiscount = new GetDishDiscount(dishes);
+            double totalDiscount = getDiscount.GetDiscount(Guest);
+            lblGetDiscount.Text = $"Uw korting: €{totalDiscount}";
+            double endPrice = Math.Round(price - totalDiscount, 3);
+            lblTotalPrice.Text = $"Totaalprijs: €{endPrice}";
+
+            Order order = new Order(dishes, endPrice, DateTime.Now);
+        }
     }
 }

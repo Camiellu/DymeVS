@@ -44,6 +44,7 @@ namespace DymeForm
             // 
             // btnEnterGuest
             // 
+            this.btnEnterGuest.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEnterGuest.Location = new System.Drawing.Point(110, 198);
             this.btnEnterGuest.Name = "btnEnterGuest";
             this.btnEnterGuest.Size = new System.Drawing.Size(100, 23);
