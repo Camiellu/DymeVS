@@ -9,6 +9,7 @@ namespace DymeForm
         private string lastName;
         private DateTime dateOfBirth;
         private List<Allergy> allergies;
+        private List<Order> orders;
 
         public Guest(string firstName, string lastName, DateTime dateOfBirth)
         {
@@ -48,6 +49,17 @@ namespace DymeForm
             set => allergies = value;
         }
 
+        public List<Order> Orders
+        {
+            get => orders;
+            set => orders = value;
+        }
+
+        public bool AddOrder(Order order)
+        {
+            Orders.Add(order);
+            return true;
+        }
         public bool TryAddAllergy(Allergy allergy)
         {
             foreach (var a in Allergies)

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace DymeForm
 {
@@ -33,9 +34,29 @@ namespace DymeForm
             set => menus = value;
         }
 
-        public void AddGuest(Guest guest)
+        public bool AddGuest(Guest guest)
         {
-            this.guests.Add(guest);
+            try
+            {
+                this.guests.Add(guest);
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+        public bool AddMenu(Menu menu)
+        {
+            try
+            {
+                this.menus.Add(menu);
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
         }
     }
 }
