@@ -38,7 +38,12 @@ namespace DymeForm
 
             foreach (var dish in Dishes)
             {
-                if (dish.FilterDish(filters))
+                bool addDish = true;
+                foreach (var filter in filters)
+                {
+                    addDish = addDish && filter.Filter(dish);
+                }
+                if (addDish)
                 {
                     filterDishes.Add(dish);
                 }

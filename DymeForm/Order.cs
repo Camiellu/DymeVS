@@ -8,6 +8,7 @@ namespace DymeForm
         private List<Dish> dishes;
         private double totalPrice;
         private DateTime dateCreated;
+        private Guest guest;
 
         public Order(List<Dish> dishes, double totalPrice, DateTime dateCreated)
         {
@@ -33,5 +34,10 @@ namespace DymeForm
             get => dateCreated;
             set => dateCreated = value;
         }
+        public void AddGuest(Guest guest) 
+        {
+            this.guest = guest;
+        }
+
     }
 }

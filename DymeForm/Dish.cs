@@ -55,20 +55,6 @@ namespace DymeForm
             set => ingredients = value;
         }
 
-        // Checks if this Dish contains filtered item
-        public bool FilterDish(List<IFilterPossibility> filters)
-        {
-
-            foreach (var f in filters)
-            {
-                if (!f.Filter(this))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
         public bool TryAddAllergy(Allergy allergy)
         {
             foreach (var a in Allergies)
