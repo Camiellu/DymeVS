@@ -116,11 +116,13 @@ namespace DymeForm
             Order order = new Order(dishes, totalPrice, DateTime.Now, Guest);
             lblGetPrice.Text = $"Prijs gerechten: {order.TotalPrice.ToString("c2")}";
 
-            IGetDiscount discountCalculator = new GetDishDiscount(order.Dishes, Restaurant.NameDiscount);
-            order.CalculateDiscount(discountCalculator);
+            IGetDiscount nameDiscountCalculator = new GetNameDiscount(order, Restaurant.NameDiscount);
+            IGetDiscount birthdayDiscountCalculator = new GetBirthdayDiscount(order, Restaurant.BirthdayDiscount);
+            List<IGetDiscount> discountCalculators = new List<IGetDiscount>{nameDiscountCalculator, birthdayDiscountCalculator};
+            order.CalculateDiscount(discountCalculators);
             lblGetDiscount.Text = $"Uw korting: {order.Discount.ToString("c2")}";
 
-            lblTotalPrice.Text = $"Totaalprijs: {order.EndPrice.ToString("c2")}";
+            lblTotalPrice.Text = $"Totaalprijs: {order.FinalPrice.ToString("c2")}";
 
         }
     }

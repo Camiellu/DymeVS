@@ -7,7 +7,7 @@ namespace DymeForm
     {
         private List<Dish> dishes;
         private double totalPrice;
-        private double endPrice;
+        private double finalPrice;
         private double discount;
         private DateTime dateCreated;
         private Guest guest;
@@ -38,10 +38,10 @@ namespace DymeForm
             set => dateCreated = value;
         }
 
-        public double EndPrice
+        public double FinalPrice
         {
-            get => endPrice;
-            set => endPrice = value;
+            get => finalPrice;
+            set => finalPrice = value;
         }
 
         public double Discount
@@ -57,10 +57,15 @@ namespace DymeForm
         }
 
 
-        public void CalculateDiscount(IGetDiscount discountCalculator)
+        public void CalculateDiscount(List<IGetDiscount> discountCalculators)
         {
-            Discount = discountCalculator.GetDiscount(Guest);
-            EndPrice = TotalPrice - Discount;
+            double totalDiscount = 0;
+            foreach (var discountCalculator in discountCalculators)
+            {
+                totalDiscount += discountCalculator.GetDiscount();
+            }
+            Discount = totalDiscount;
+            FinalPrice = TotalPrice - Discount;
         }
     }
 }

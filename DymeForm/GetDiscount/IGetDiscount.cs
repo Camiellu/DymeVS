@@ -2,6 +2,6 @@
 {
     public interface IGetDiscount
     {
-        double GetDiscount(Guest guest);
+        double GetDiscount();
     }
 }

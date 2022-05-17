@@ -52,8 +52,9 @@ namespace DymeForm
 
             List<Menu> menus = new List<Menu> { voor, hoofd, dessert };
             List<Guest> guests = new List<Guest> { guest1, guest2, guest3 };
-            int discount = 5;
-            Restaurant restaurant = new Restaurant("Dyme", guests, menus, discount);
+            int nameDiscount = 5;
+            int birthdayDiscount = 10;
+            Restaurant restaurant = new Restaurant("Dyme", guests, menus, nameDiscount, birthdayDiscount);
             return restaurant;
         }
 

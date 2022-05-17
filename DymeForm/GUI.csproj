@@ -53,7 +53,8 @@
     <Compile Include="Filter\AllergyFilter.cs" />
     <Compile Include="Filter\IFilterPossibility.cs" />
     <Compile Include="Filter\IngredientFilter.cs" />
-    <Compile Include="GetDiscount\GetDishDiscount.cs" />
+    <Compile Include="GetDiscount\GetBirthdayDiscount.cs" />
+    <Compile Include="GetDiscount\GetNameDiscount.cs" />
     <Compile Include="Guest.cs" />
     <Compile Include="GetDiscount\IGetDiscount.cs" />
     <Compile Include="Ingredient.cs" />
