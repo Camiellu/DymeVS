@@ -105,22 +105,23 @@ namespace DymeForm
         private void btnMakeOrder_Click(object sender, EventArgs e)
         {
             List<Dish> dishes = new List<Dish>();
-            double price = 0;
+            double totalPrice = 0;
             foreach (Dish dish in listOrder.Items)
             {
                 dishes.Add(dish);
-                price += dish.Price;
+                totalPrice += dish.Price;
 
             }
 
-            lblGetPrice.Text = $"Prijs gerechten: €{Math.Round(price, 3)}";
-            IGetDiscount getDiscount = new GetDishDiscount(dishes);
-            double totalDiscount = getDiscount.GetDiscount(Guest);
-            lblGetDiscount.Text = $"Uw korting: €{totalDiscount}";
-            double endPrice = Math.Round(price - totalDiscount, 3);
-            lblTotalPrice.Text = $"Totaalprijs: €{endPrice}";
+            Order order = new Order(dishes, totalPrice, DateTime.Now, Guest);
+            lblGetPrice.Text = $"Prijs gerechten: {order.TotalPrice.ToString("c2")}";
 
-            Order order = new Order(dishes, endPrice, DateTime.Now);
+            IGetDiscount discountCalculator = new GetDishDiscount(dishes, Restaurant.NameDiscount);
+            order.CalculateDiscount(discountCalculator);
+            lblGetDiscount.Text = $"Uw korting: {order.Discount.ToString("c2")}";
+
+            lblTotalPrice.Text = $"Totaalprijs: {order.EndPrice.ToString("c2")}";
+
         }
     }
 }

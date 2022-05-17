@@ -6,10 +6,12 @@ namespace DymeForm
     public class GetDishDiscount : IGetDiscount
     {
         private List<Dish> dishes;
+        private int discountPercentage;
 
-        public GetDishDiscount(List<Dish> dishes)
+        public GetDishDiscount(List<Dish> dishes, int discountPercentage)
         {
             this.dishes = dishes;
+            this.discountPercentage = discountPercentage;
         }
 
         public double GetDiscount(Guest guest)
@@ -20,7 +22,7 @@ namespace DymeForm
             {
                 if (d.Name.Substring(0, 1).ToUpper().Equals(guestFirstLetter.ToUpper()))
                 {
-                    totalDiscount += Math.Round((d.Price / 100) * 5, 2);
+                    totalDiscount += Math.Round((d.Price / 100) * discountPercentage, 2);
                 }
             }
 

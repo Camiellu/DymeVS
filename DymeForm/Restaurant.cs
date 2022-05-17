@@ -9,13 +9,14 @@ namespace DymeForm
         private List<Guest> guests;
         private List<Menu> menus;
         private List<Order> orders;
+        private int nameDiscount;
 
-        public Restaurant(string name, List<Guest> guests, List<Menu> menus, List<Order> orders)
+        public Restaurant(string name, List<Guest> guests, List<Menu> menus, int nameDiscount)
         {
             this.Name = name;
             this.Guests = guests;
             this.Menus = menus;
-            this.Orders = orders;
+            this.NameDiscount = nameDiscount;
         }
 
         public string Name
@@ -41,6 +42,12 @@ namespace DymeForm
             set => orders = value;
         }
 
+        public int NameDiscount
+        {
+            get => nameDiscount;
+            set => nameDiscount = value;
+        }
+
         public void AddGuest(Guest guest)
         {
             this.guests.Add(guest);
@@ -49,9 +56,9 @@ namespace DymeForm
         {
             this.menus.Add(menu);
         }
-        public void AddOrder(Order order, Guest guest)
+        public void AddOrder(Order order)
         {
-            
+            this.orders.Add(order);
         }
     }
 }

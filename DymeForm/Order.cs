@@ -7,14 +7,17 @@ namespace DymeForm
     {
         private List<Dish> dishes;
         private double totalPrice;
+        private double endPrice;
+        private double discount;
         private DateTime dateCreated;
         private Guest guest;
 
-        public Order(List<Dish> dishes, double totalPrice, DateTime dateCreated)
+        public Order(List<Dish> dishes, double totalPrice, DateTime dateCreated, Guest guest)
         {
             this.Dishes = dishes;
             this.TotalPrice = totalPrice;
             this.DateCreated = dateCreated;
+            this.guest = guest;
         }
 
         public List<Dish> Dishes
@@ -34,10 +37,30 @@ namespace DymeForm
             get => dateCreated;
             set => dateCreated = value;
         }
-        public void AddGuest(Guest guest) 
+
+        public double EndPrice
         {
-            this.guest = guest;
+            get => endPrice;
+            set => endPrice = value;
         }
 
+        public double Discount
+        {
+            get => discount;
+            set => discount = value;
+        }
+
+        public Guest Guest
+        {
+            get => guest;
+            set => guest = value;
+        }
+
+
+        public void CalculateDiscount(IGetDiscount discountCalculator)
+        {
+            Discount = discountCalculator.GetDiscount(Guest);
+            EndPrice = TotalPrice - Discount;
+        }
     }
 }
