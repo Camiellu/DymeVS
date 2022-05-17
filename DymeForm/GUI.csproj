@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{89968B50-B77E-4123-870A-A88B54ED2AA3}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>DymeForm</RootNamespace>
+    <RootNamespace>GUI</RootNamespace>
     <AssemblyName>DymeForm</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -46,27 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Allergy.cs" />
-    <Compile Include="Class1.cs" />
-    <Compile Include="DBConnection.cs" />
-    <Compile Include="Dish.cs" />
-    <Compile Include="Filter\AllergyFilter.cs" />
-    <Compile Include="Filter\IFilterPossibility.cs" />
-    <Compile Include="Filter\IngredientFilter.cs" />
-    <Compile Include="GetDiscount\GetBirthdayDiscount.cs" />
-    <Compile Include="GetDiscount\GetNameDiscount.cs" />
-    <Compile Include="Guest.cs" />
-    <Compile Include="GetDiscount\IGetDiscount.cs" />
-    <Compile Include="Ingredient.cs" />
-    <Compile Include="Menu.cs" />
     <Compile Include="MenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MenuForm.Designer.cs">
       <DependentUpon>MenuForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Order.cs" />
-    <Compile Include="Restaurant.cs" />
     <Compile Include="Start.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +74,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -104,9 +90,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataAccesLayer\DataAccesLayer.csproj">
+    <ProjectReference Include="..\Business\Business.csproj">
+      <Project>{C57AE5C4-0E47-4C45-B582-FF256A4844B2}</Project>
+      <Name>Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccesLayer\DataAccessLayer.csproj">
       <Project>{AE48D016-F0BC-401F-97EF-A05DE03F75B0}</Project>
-      <Name>DataAccesLayer</Name>
+      <Name>DataAccessLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

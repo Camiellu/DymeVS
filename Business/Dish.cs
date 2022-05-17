@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DymeForm
+namespace Business
 {
     public class Dish
     {

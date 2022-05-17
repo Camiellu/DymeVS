@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace DymeForm
+﻿namespace Business.GetDiscount
 {
     public class GetNameDiscount : IGetDiscount
     {

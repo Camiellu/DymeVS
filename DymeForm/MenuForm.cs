@@ -7,8 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Business;
+using Business.Filter;
+using Business.GetDiscount;
+using Menu = Business.Menu;
 
-namespace DymeForm
+namespace GUI
 {
     public partial class MenuForm : Form
     {

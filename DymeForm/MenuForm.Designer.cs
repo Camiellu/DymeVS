@@ -1,5 +1,5 @@
 ﻿
-namespace DymeForm
+namespace GUI
 {
     partial class MenuForm
     {

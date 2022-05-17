@@ -1,4 +1,4 @@
-﻿namespace DymeForm
+﻿namespace Business.GetDiscount
 {
     public interface IGetDiscount
     {

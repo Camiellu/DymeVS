@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using Business.GetDiscount;
 
-namespace DymeForm
+namespace Business
 {
     public class Order
     {

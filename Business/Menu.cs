@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
+using Business.Filter;
 
-namespace DymeForm
+namespace Business
 {
     public class Menu
     {
@@ -31,7 +31,9 @@ namespace DymeForm
             set => dishes = value;
         }
 
-        // Checks dishes in menu if they contain filtered item, returns filtered list
+        /*
+         * Checks dishes in menu if they contain filtered item, returns filtered list
+         */
         public List<Dish> FilterDishes(List<IFilterPossibility> filters)
         {
             List<Dish> filterDishes = new List<Dish>();

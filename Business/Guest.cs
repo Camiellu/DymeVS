@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
-namespace DymeForm
+namespace Business
 {
     public class Guest
     {
@@ -62,12 +63,9 @@ namespace DymeForm
         }
         public bool TryAddAllergy(Allergy allergy)
         {
-            foreach (var a in Allergies)
+            if (Allergies.Any(a => a.Name.Equals(allergy.Name)))
             {
-                if (a.Name.Equals(allergy.Name))
-                {
-                    return false;
-                }
+                return false;
             }
             this.Allergies.Add(allergy);
             return true;

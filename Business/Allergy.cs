@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DymeForm
+namespace Business
 {
     public class Allergy
     {
@@ -21,7 +21,6 @@ namespace DymeForm
         public Allergy(string name)
         {
             this.Name = name;
-            this.Ingredients = ingredients;
         }
 
         public string Name

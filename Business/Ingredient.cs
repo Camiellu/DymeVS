@@ -1,4 +1,4 @@
-﻿namespace DymeForm
+﻿namespace Business
 {
     public class Ingredient 
     {

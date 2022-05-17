@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace DymeForm
+﻿namespace Business.Filter
 {
     public interface IFilterPossibility
     {

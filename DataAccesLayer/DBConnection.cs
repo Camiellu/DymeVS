@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using Business;
 
-
-namespace DymeForm
+namespace DataAccesLayer
 {
     public class DBConnection
     {

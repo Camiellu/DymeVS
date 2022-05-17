@@ -7,8 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Business;
+using DataAccesLayer;
 
-namespace DymeForm
+namespace GUI
 {
     public partial class Start : Form
     {
