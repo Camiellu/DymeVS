@@ -46,8 +46,8 @@ namespace DymeForm
             this.lblGetDiscount = new System.Windows.Forms.Label();
             this.lblTotalPrice = new System.Windows.Forms.Label();
             this.panelPriceInfo = new System.Windows.Forms.Panel();
-            this.lblDiscountInfo = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblDiscountInfo = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panelPriceInfo.SuspendLayout();
             this.SuspendLayout();
@@ -59,6 +59,7 @@ namespace DymeForm
             this.comboSelectMenu.Name = "comboSelectMenu";
             this.comboSelectMenu.Size = new System.Drawing.Size(135, 21);
             this.comboSelectMenu.TabIndex = 0;
+            this.comboSelectMenu.SelectedIndexChanged += new System.EventHandler(this.comboSelectMenu_SelectedIndexChanged);
             // 
             // lblSelectMenu
             // 
@@ -207,6 +208,14 @@ namespace DymeForm
             this.panelPriceInfo.Size = new System.Drawing.Size(200, 100);
             this.panelPriceInfo.TabIndex = 13;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel2.Location = new System.Drawing.Point(6, 31);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(177, 1);
+            this.panel2.TabIndex = 13;
+            // 
             // lblDiscountInfo
             // 
             this.lblDiscountInfo.AutoSize = true;
@@ -215,14 +224,6 @@ namespace DymeForm
             this.lblDiscountInfo.Size = new System.Drawing.Size(191, 26);
             this.lblDiscountInfo.TabIndex = 14;
             this.lblDiscountInfo.Text = "Ontvang 5% korting op gerechten met \r\ndezelfde eerste letter als uw voornaam!";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel2.Location = new System.Drawing.Point(6, 31);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(177, 1);
-            this.panel2.TabIndex = 13;
             // 
             // MenuForm
             // 

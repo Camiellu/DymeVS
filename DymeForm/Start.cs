@@ -33,6 +33,9 @@ namespace DymeForm
             }
         }
 
+        /*
+         * Button to save guest and head to next form
+         */
         private void btnEnterGuest_Click(object sender, EventArgs e)
         {
             string firstName = txtFirstName.Text;
@@ -52,7 +55,9 @@ namespace DymeForm
 
 
 
-        // Close app on closing form
+        /*
+         * Close app on closing form
+         */
         private void Start_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.ExitThread();
