@@ -8,14 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business;
-using DataAccesLayer;
+using Business.Models;
+using DataAccessLayer;
 
 namespace GUI
 {
     public partial class Start : Form
     {
-        private static DBConnection dB = new DBConnection();
-        public Restaurant Restaurant = dB.GetRestaurant();
+        public BusinessController BusinessController = new BusinessController();
+        // private static DBConnection dB = new DBConnection();
         public Start()
         {
             InitializeComponent();

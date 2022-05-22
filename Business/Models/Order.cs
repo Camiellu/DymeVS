@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Business.GetDiscount;
 
-namespace Business
+namespace Business.Models
 {
     public class Order
     {

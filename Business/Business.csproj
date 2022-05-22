@@ -41,22 +41,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Allergy.cs" />
-    <Compile Include="Dish.cs" />
-    <Compile Include="Filter\AllergyFilter.cs" />
-    <Compile Include="Filter\IFilterPossibility.cs" />
-    <Compile Include="Filter\IngredientFilter.cs" />
+    <Compile Include="BusinessController.cs" />
+    <Compile Include="Models\Allergy.cs" />
+    <Compile Include="Models\Dish.cs" />
+    <Compile Include="Filters\AllergyFilter.cs" />
+    <Compile Include="Filters\IFilterPossibility.cs" />
+    <Compile Include="Filters\IngredientFilter.cs" />
     <Compile Include="GetDiscount\GetBirthdayDiscount.cs" />
     <Compile Include="GetDiscount\GetNameDiscount.cs" />
     <Compile Include="GetDiscount\IGetDiscount.cs" />
-    <Compile Include="Guest.cs" />
-    <Compile Include="RestaurantRepository\IRestaurantRepository.cs" />
-    <Compile Include="Ingredient.cs" />
-    <Compile Include="Menu.cs" />
-    <Compile Include="Order.cs" />
+    <Compile Include="Models\Guest.cs" />
+    <Compile Include="DataAccess\IRestaurantRepository.cs" />
+    <Compile Include="Models\Ingredient.cs" />
+    <Compile Include="Models\Menu.cs" />
+    <Compile Include="Models\Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Restaurant.cs" />
-    <Compile Include="RestaurantManager.cs" />
+    <Compile Include="Models\Restaurant.cs" />
+    <Compile Include="BusinessLogic\RestaurantManager.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

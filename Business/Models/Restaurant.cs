@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Business.DataAccess;
 
-namespace Business
+namespace Business.Models
 {
     public class Restaurant
     {
@@ -12,6 +12,11 @@ namespace Business
         private int nameDiscount;
         private int birthdayDiscount;
 
+
+        public Restaurant(IRestaurantRepository restaurantRepository)
+        {
+            this.name = restaurantRepository
+        }
         public Restaurant(string name, List<Guest> guests, List<Menu> menus, int nameDiscount, int birthdayDiscount)
         {
             this.Name = name;

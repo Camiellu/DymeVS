@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using Business;
+using Business.Models;
 
-namespace DataAccesLayer
+namespace DataAccessLayer
 {
     public class DBConnection
     {
-
-        public Restaurant GetRestaurant()
+        //ToDo build database
+        public RestaurantRepositoryDto GetRestaurant()
         {
 
             // Dummy ingredients
@@ -55,7 +56,8 @@ namespace DataAccesLayer
             int nameDiscount = 5;
             int birthdayDiscount = 10;
             Restaurant restaurant = new Restaurant("Dyme", guests, menus, nameDiscount, birthdayDiscount);
-            return restaurant;
+            RestaurantRepositoryDto restaurantRepository = new RestaurantRepositoryDto(restaurant);
+            return restaurantRepository;
         }
 
         public List<Ingredient> GetIngredients()
@@ -74,11 +76,11 @@ namespace DataAccesLayer
                 {kip, vis, rund, varken, ui, knoflook, koriander, rijst, aardappel, melk};
             return ingredients;
         }
-        //public List<Dish> GetDishes()
-        //{
-        //    List<Dish> dishes = new List<Dish> { carpaccio, tomatensoep, sate, zalm, burger, dame, kaasplank };
-        //    return dishes;
-        //}
+        public List<Dish> GetDishes()
+        {
+            List<Dish> dishes = new List<Dish> { carpaccio, tomatensoep, sate, zalm, burger, dame, kaasplank };
+            return dishes;
+        }
 
         public List<Allergy> GetAllergies()
         {

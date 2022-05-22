@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Business.Filter;
 
-namespace Business
+namespace Business.Models
 {
     public class Menu
     {

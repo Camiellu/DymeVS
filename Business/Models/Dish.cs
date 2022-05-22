@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Business
+namespace Business.Models
 {
     public class Dish
     {

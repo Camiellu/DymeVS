@@ -1,22 +1,23 @@
-﻿using Business;
+﻿using System.Collections.Generic;
+using Business;
+using Business.DataAccess;
+using Business.Models;
 
-namespace DataAccesLayer
+namespace DataAccessLayer
 {
-    public class RestaurantDto : IGetRestaurant
+    public class RestaurantRepositoryDto : IRestaurantRepository
     {
-        public Restaurant Restaurant { get; set; }
-
-        public RestaurantDto ()
+        private string name;
+        private List<Guest> guests;
+        private List<Menu> menus;
+        private List<Order> orders;
+        private int nameDiscount;
+        private int birthdayDiscount;
+        public RestaurantRepositoryDto ()
         {
-            DBConnection dB = new DBConnection();
-            Restaurant = dB.GetRestaurant();
+          
         }
 
-        public Restaurant GetRestaurant()
-        {
-            DBConnection dB = new DBConnection();
-            Restaurant = dB.GetRestaurant();
-            return Restaurant;
-        }
+        
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace Business.Filter
+﻿using Business.Models;
+
+namespace Business.Filter
 {
     public interface IFilterPossibility
     {

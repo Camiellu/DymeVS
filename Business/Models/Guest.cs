@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Business
+namespace Business.Models
 {
     public class Guest
     {

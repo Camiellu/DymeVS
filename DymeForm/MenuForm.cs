@@ -10,7 +10,8 @@ using System.Windows.Forms;
 using Business;
 using Business.Filter;
 using Business.GetDiscount;
-using Menu = Business.Menu;
+using Business.Models;
+using Menu = Business.Models.Menu;
 
 namespace GUI
 {

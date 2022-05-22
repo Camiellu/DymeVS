@@ -1,4 +1,6 @@
-﻿namespace Business.GetDiscount
+﻿using Business.Models;
+
+namespace Business.GetDiscount
 {
     public class GetBirthdayDiscount : IGetDiscount
     {
