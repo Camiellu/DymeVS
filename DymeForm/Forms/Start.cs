@@ -8,20 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business;
+using Business.BusinessLogic;
 using Business.Models;
-using DataAccessLayer;
+using DataAccesLayer;
 
 namespace GUI
 {
     public partial class Start : Form
     {
-        public BusinessController BusinessController = new BusinessController();
-        // private static DBConnection dB = new DBConnection();
+        BusinessController controller = new BusinessController();
+        RestaurantManager restaurantManager = new RestaurantManager(new RestaurantDal());
+
         public Start()
         {
             InitializeComponent();
-            lblWelcome.Text = $"Welkom bij {Restaurant.Name}!";
-            foreach (var m in Restaurant.Menus)
+            controller.GetRestaurant(restaurantManager);
+            lblWelcome.Text = $"Welkom bij {controller.GetRestaurantName()}!";
+            foreach (var m in controller.GetRestaurantMenus())
             {
                 foreach (var d in m.Dishes)
                 {
@@ -50,13 +53,11 @@ namespace GUI
                 allergies.Add(a);
             }
             MenuForm menuForm = new MenuForm();
-            menuForm.Guest = new Guest(firstName, lastName, dateOfBirth, allergies);
-            menuForm.Restaurant = Restaurant;
+            controller.AddGuest(firstName, lastName, dateOfBirth, allergies);
+            menuForm.controller = this.controller;
             menuForm.Show();
             this.Hide();
         }
-
-
 
         /*
          * Close app on closing form
@@ -65,8 +66,5 @@ namespace GUI
         {
             Application.ExitThread();
         }
-
-
-
     }
 }

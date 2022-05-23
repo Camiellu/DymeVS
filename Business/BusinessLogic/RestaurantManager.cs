@@ -6,9 +6,16 @@ namespace Business.BusinessLogic
 {
     public class RestaurantManager 
     {
-        public Restaurant ()
+        private IRestaurantRepository restaurantRepository;
+
+        public RestaurantManager(IRestaurantRepository restaurantRepository)
         {
-            
+            this.restaurantRepository = restaurantRepository;
+        }
+
+        public Restaurant GetRestaurant()
+        {
+            return this.restaurantRepository.GetRestaurant();
         }
     }
 }

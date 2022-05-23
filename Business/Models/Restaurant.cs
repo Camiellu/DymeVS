@@ -13,10 +13,6 @@ namespace Business.Models
         private int birthdayDiscount;
 
 
-        public Restaurant(IRestaurantRepository restaurantRepository)
-        {
-            this.name = restaurantRepository
-        }
         public Restaurant(string name, List<Guest> guests, List<Menu> menus, int nameDiscount, int birthdayDiscount)
         {
             this.Name = name;
@@ -24,6 +20,10 @@ namespace Business.Models
             this.Menus = menus;
             this.NameDiscount = nameDiscount;
             this.BirthdayDiscount = birthdayDiscount;
+        }
+        public Restaurant()
+        {
+
         }
 
         public string Name

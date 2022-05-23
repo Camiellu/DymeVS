@@ -7,9 +7,9 @@ namespace Business.Filter
     {
         private List<Allergy> allergies;
 
-        public AllergyFilter(List<Allergy> allergies)
+        public void AddAllergy(Allergy allergy)
         {
-            this.allergies = allergies;
+            this.allergies.Add(allergy);
         }
 
         public bool Filter(Dish dish)

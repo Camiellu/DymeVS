@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "DymeForm\GUI.csproj"
 		{C57AE5C4-0E47-4C45-B582-FF256A4844B2} = {C57AE5C4-0E47-4C45-B582-FF256A4844B2}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccesLayer\DataAccessLayer.csproj", "{AE48D016-F0BC-401F-97EF-A05DE03F75B0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccesLayer", "DataAccesLayer\DataAccesLayer.csproj", "{AE48D016-F0BC-401F-97EF-A05DE03F75B0}"
 	ProjectSection(ProjectDependencies) = postProject
 		{C57AE5C4-0E47-4C45-B582-FF256A4844B2} = {C57AE5C4-0E47-4C45-B582-FF256A4844B2}
 	EndProjectSection

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Business;
 using Business.Models;
 
-namespace DataAccessLayer
+namespace DataAccesLayer
 {
     public class DBConnection
     {

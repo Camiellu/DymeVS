@@ -7,9 +7,13 @@ namespace Business.Filter
     {
         private List<Ingredient> ingredients;
 
-        public IngredientFilter(List<Ingredient> ingredients)
+        public IngredientFilter()
         {
-            this.ingredients = ingredients;
+        }
+
+        public void AddIngredient(Ingredient ingredient)
+        {
+            this.ingredients.Add(ingredient);
         }
 
         public bool Filter(Dish dish)

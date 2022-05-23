@@ -3,7 +3,7 @@ using Business;
 using Business.DataAccess;
 using Business.Models;
 
-namespace DataAccesLayer
+namespace DataAccessLayer
 {
     public class RestaurantDal : IRestaurantRepository
     {

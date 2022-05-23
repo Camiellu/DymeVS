@@ -46,24 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MenuForm.cs">
+    <Compile Include="Forms\MenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MenuForm.Designer.cs">
+    <Compile Include="Forms\MenuForm.Designer.cs">
       <DependentUpon>MenuForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Start.cs">
+    <Compile Include="Forms\Start.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Start.Designer.cs">
+    <Compile Include="Forms\Start.Designer.cs">
       <DependentUpon>Start.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="MenuForm.resx">
+    <EmbeddedResource Include="Forms\MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Start.resx">
+    <EmbeddedResource Include="Forms\Start.resx">
       <DependentUpon>Start.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -94,9 +94,9 @@
       <Project>{C57AE5C4-0E47-4C45-B582-FF256A4844B2}</Project>
       <Name>Business</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DataAccesLayer\DataAccessLayer.csproj">
+    <ProjectReference Include="..\DataAccesLayer\DataAccesLayer.csproj">
       <Project>{AE48D016-F0BC-401F-97EF-A05DE03F75B0}</Project>
-      <Name>DataAccessLayer</Name>
+      <Name>DataAccesLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

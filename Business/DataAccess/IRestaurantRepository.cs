@@ -4,6 +4,6 @@ namespace Business.DataAccess
 {
     public interface IRestaurantRepository
     {
-      
+        Restaurant GetRestaurant();
     }
 }

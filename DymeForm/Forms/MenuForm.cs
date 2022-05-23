@@ -11,15 +11,13 @@ using Business;
 using Business.Filter;
 using Business.GetDiscount;
 using Business.Models;
-using Menu = Business.Models.Menu;
 
 namespace GUI
 {
     public partial class MenuForm : Form
     {
-        public Restaurant Restaurant { get; set; }
-        public Guest Guest { get; set; }
-        public List<Ingredient> CheckedIngredients = new List<Ingredient>();
+        public BusinessController controller { get; set; }
+
 
         public MenuForm()
         {
@@ -40,7 +38,7 @@ namespace GUI
          */
         private void MenuForm_Load(object sender, EventArgs e)
         {
-            lblGuestInfo.Text = $"Welkom {Guest.FirstName}!";
+            lblGuestInfo.Text = $"Welkom {controller.guest.FirstName}!";
             // Load menus and ingredients 
             FillMenuAndIngredients();
 
@@ -117,7 +115,7 @@ namespace GUI
         {
             comboSelectMenu.Items.Clear();
             checkedIngredientFilter.Items.Clear();
-            foreach (var m in Restaurant.Menus)
+            foreach (var m in controller.GetRestaurantMenus())
             {
                 comboSelectMenu.Items.Add(m);
                 foreach (var d in m.Dishes)
@@ -140,18 +138,17 @@ namespace GUI
         {
             if (comboSelectMenu.SelectedIndex > -1)
             {
+                List<Ingredient> ingredientFilters = new List<Ingredient>();
                 listDishes.Items.Clear();
-                CheckedIngredients.Clear();
                 foreach (Ingredient i in checkedIngredientFilter.CheckedItems)
                 {
-                    CheckedIngredients.Add(i);
+                    ingredientFilters.Add(i);
                 }
 
-                AllergyFilter allergyFilter = new AllergyFilter(Guest.Allergies);
-                IngredientFilter ingredientFilter = new IngredientFilter(CheckedIngredients);
-                List<IFilterPossibility> filters = new List<IFilterPossibility> { allergyFilter, ingredientFilter };
-                Menu menu = (Menu)comboSelectMenu.SelectedItem;
-                foreach (var dish in menu.FilterDishes(filters))
+                
+                List<IFilterPossibility> filters = new List<IFilterPossibility> { controller.GetIngredientFilter(ingredientFilters), controller.GetAllergyFilter() };
+                controller.menu = comboSelectMenu.SelectedItem;
+                foreach (var dish in controller.menu.FilterDishes(filters))
                 {
                     listDishes.Items.Add(dish);
                 }
