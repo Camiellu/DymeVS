@@ -30,7 +30,17 @@ namespace GUI
          */
         private void MenuForm_Load(object sender, EventArgs e)
         {
-            lblGuestInfo.Text = $"Welkom {Controller.Guest.FirstName}!";
+            DateTime today = DateTime.Now;
+            if (Controller.Guest.DateOfBirth.Day == today.Day
+                && Controller.Guest.DateOfBirth.Month == today.Month)
+            {
+                lblGuestInfo.Text = $@"Welkom {Controller.Guest.FirstName}! " +
+                                    $@"Gefeliciteerd met je verjaardag, je krijgt {Controller.Restaurant.BirthdayDiscount}% korting!";
+            }
+            else
+            {
+                lblGuestInfo.Text = $@"Welkom {Controller.Guest.FirstName}!";
+            }
             // Load menus and ingredients 
             FillMenus();
 
@@ -74,9 +84,9 @@ namespace GUI
                 dishes.Add(dish);
             }
             Controller.AddOrder(dishes);
-            lblGetPrice.Text = $"Prijs gerechten: {Controller.Order.TotalPrice.ToString("c2")}";
-            lblGetDiscount.Text = $"Uw korting: {Controller.Order.Discount.ToString("c2")}";
-            lblTotalPrice.Text = $"Totaalprijs: {Controller.Order.FinalPrice.ToString("c2")}";
+            lblGetPrice.Text = $@"Prijs gerechten: {Controller.Order.TotalPrice.ToString("c2")}";
+            lblGetDiscount.Text = $@"Uw korting: {Controller.Order.Discount.ToString("c2")}";
+            lblTotalPrice.Text = $@"Totaalprijs: {Controller.Order.FinalPrice.ToString("c2")}";
 
         }
 
