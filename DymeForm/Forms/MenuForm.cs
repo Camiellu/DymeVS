@@ -1,22 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business;
-using Business.Filter;
-using Business.GetDiscount;
-using Business.Models;
+using GUI.Forms;
 
 namespace GUI
 {
     public partial class MenuForm : Form
     {
-        public BusinessController controller { get; set; }
+        public BusinessController Controller { get; set; }
 
 
         public MenuForm()
@@ -26,9 +18,9 @@ namespace GUI
         }
 
         /*
-         * Button to add selected ingredients to filter list
+         * Loads dishes when ingredient is selected
          */
-        private void btnConfirmFilters_Click(object sender, EventArgs e)
+        private void checkedIngredientFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadDishList();
         }
@@ -38,9 +30,9 @@ namespace GUI
          */
         private void MenuForm_Load(object sender, EventArgs e)
         {
-            lblGuestInfo.Text = $"Welkom {controller.guest.FirstName}!";
+            lblGuestInfo.Text = $"Welkom {Controller.Guest.FirstName}!";
             // Load menus and ingredients 
-            FillMenuAndIngredients();
+            FillMenus();
 
         }
 
@@ -76,25 +68,15 @@ namespace GUI
          */
         private void btnMakeOrder_Click(object sender, EventArgs e)
         {
-            List<Dish> dishes = new List<Dish>();
-            double totalPrice = 0;
-            foreach (Dish dish in listOrder.Items)
+            List<string> dishes = new List<string>();
+            foreach (string dish in listOrder.Items)
             {
                 dishes.Add(dish);
-                totalPrice += dish.Price;
-
             }
-
-            Order order = new Order(dishes, totalPrice, DateTime.Now, Guest);
-            lblGetPrice.Text = $"Prijs gerechten: {order.TotalPrice.ToString("c2")}";
-
-            IGetDiscount nameDiscountCalculator = new GetNameDiscount(order, Restaurant.NameDiscount);
-            IGetDiscount birthdayDiscountCalculator = new GetBirthdayDiscount(order, Restaurant.BirthdayDiscount);
-            List<IGetDiscount> discountCalculators = new List<IGetDiscount> { nameDiscountCalculator, birthdayDiscountCalculator };
-            order.CalculateDiscount(discountCalculators);
-            lblGetDiscount.Text = $"Uw korting: {order.Discount.ToString("c2")}";
-
-            lblTotalPrice.Text = $"Totaalprijs: {order.FinalPrice.ToString("c2")}";
+            Controller.AddOrder(dishes);
+            lblGetPrice.Text = $"Prijs gerechten: {Controller.Order.TotalPrice.ToString("c2")}";
+            lblGetDiscount.Text = $"Uw korting: {Controller.Order.Discount.ToString("c2")}";
+            lblTotalPrice.Text = $"Totaalprijs: {Controller.Order.FinalPrice.ToString("c2")}";
 
         }
 
@@ -105,52 +87,55 @@ namespace GUI
         private void comboSelectMenu_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadDishList();
+            FillIngredients();
         }
 
 
         /*
-         * Method to fill the menu and ingredient list upon loading
+         * Fills the menu and ingredient listbox
          */
-        private void FillMenuAndIngredients()
+        private void FillMenus()
         {
             comboSelectMenu.Items.Clear();
-            checkedIngredientFilter.Items.Clear();
-            foreach (var m in controller.GetRestaurantMenus())
+
+            foreach (var m in Controller.GetRestaurantMenus())
             {
-                comboSelectMenu.Items.Add(m);
-                foreach (var d in m.Dishes)
+                comboSelectMenu.Items.Add(m.Name);
+            }
+        }
+
+        /*
+         * Fills ingredient listbox
+         */
+        private void FillIngredients()
+        {
+            foreach (var ingredientName in Controller.GetDishIngredientNames())
+            {
+                if (!checkedIngredientFilter.Items.Contains(ingredientName))
                 {
-                    foreach (var i in d.Ingredients)
-                    {
-                        if (!checkedIngredientFilter.Items.Contains(i))
-                        {
-                            checkedIngredientFilter.Items.Add(i);
-                        }
-                    }
+                    checkedIngredientFilter.Items.Add(ingredientName);
                 }
             }
         }
 
         /*
-         * Method to load the dish list with selected filters
+         * Fills dish list with applied filters
          */
         private void LoadDishList()
         {
             if (comboSelectMenu.SelectedIndex > -1)
             {
-                List<Ingredient> ingredientFilters = new List<Ingredient>();
+                List<string> ingredientFilters = new List<string>();
                 listDishes.Items.Clear();
-                foreach (Ingredient i in checkedIngredientFilter.CheckedItems)
+                foreach (string ingredientName in checkedIngredientFilter.CheckedItems)
                 {
-                    ingredientFilters.Add(i);
+                    ingredientFilters.Add(ingredientName);
                 }
 
-                
-                List<IFilterPossibility> filters = new List<IFilterPossibility> { controller.GetIngredientFilter(ingredientFilters), controller.GetAllergyFilter() };
-                controller.menu = comboSelectMenu.SelectedItem;
-                foreach (var dish in controller.menu.FilterDishes(filters))
+                Controller.GetSelectedMenu(comboSelectMenu.SelectedItem.ToString());
+                foreach (var dishName in Controller.FilterDishes(ingredientFilters))
                 {
-                    listDishes.Items.Add(dish);
+                    listDishes.Items.Add(dishName);
                 }
             }
             else
@@ -158,5 +143,6 @@ namespace GUI
                 MessageBox.Show("U moet een menu selecteren!");
             }
         }
+
     }
 }

@@ -1,5 +1,5 @@
 ﻿
-namespace GUI
+namespace GUI.Forms
 {
     partial class Start
     {
@@ -117,6 +117,7 @@ namespace GUI
             // 
             // checkboxSelectAllergy
             // 
+            this.checkboxSelectAllergy.CheckOnClick = true;
             this.checkboxSelectAllergy.FormattingEnabled = true;
             this.checkboxSelectAllergy.Location = new System.Drawing.Point(256, 101);
             this.checkboxSelectAllergy.Name = "checkboxSelectAllergy";

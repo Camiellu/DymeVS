@@ -36,7 +36,6 @@ namespace GUI
             this.checkedIngredientFilter = new System.Windows.Forms.CheckedListBox();
             this.lblIngredientFilter = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnConfirmFilters = new System.Windows.Forms.Button();
             this.listDishes = new System.Windows.Forms.ListBox();
             this.lblFilteredDishes = new System.Windows.Forms.Label();
             this.listOrder = new System.Windows.Forms.ListBox();
@@ -54,10 +53,13 @@ namespace GUI
             // 
             // comboSelectMenu
             // 
+            this.comboSelectMenu.BackColor = System.Drawing.SystemColors.Window;
+            this.comboSelectMenu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboSelectMenu.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboSelectMenu.FormattingEnabled = true;
             this.comboSelectMenu.Location = new System.Drawing.Point(9, 16);
             this.comboSelectMenu.Name = "comboSelectMenu";
-            this.comboSelectMenu.Size = new System.Drawing.Size(135, 21);
+            this.comboSelectMenu.Size = new System.Drawing.Size(184, 21);
             this.comboSelectMenu.TabIndex = 0;
             this.comboSelectMenu.SelectedIndexChanged += new System.EventHandler(this.comboSelectMenu_SelectedIndexChanged);
             // 
@@ -86,8 +88,9 @@ namespace GUI
             this.checkedIngredientFilter.FormattingEnabled = true;
             this.checkedIngredientFilter.Location = new System.Drawing.Point(9, 56);
             this.checkedIngredientFilter.Name = "checkedIngredientFilter";
-            this.checkedIngredientFilter.Size = new System.Drawing.Size(132, 289);
+            this.checkedIngredientFilter.Size = new System.Drawing.Size(184, 289);
             this.checkedIngredientFilter.TabIndex = 2;
+            this.checkedIngredientFilter.SelectedIndexChanged += new System.EventHandler(this.checkedIngredientFilter_SelectedIndexChanged);
             // 
             // lblIngredientFilter
             // 
@@ -101,26 +104,14 @@ namespace GUI
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.btnConfirmFilters);
             this.panel1.Controls.Add(this.lblSelectMenu);
             this.panel1.Controls.Add(this.lblIngredientFilter);
             this.panel1.Controls.Add(this.comboSelectMenu);
             this.panel1.Controls.Add(this.checkedIngredientFilter);
             this.panel1.Location = new System.Drawing.Point(15, 44);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(231, 356);
+            this.panel1.Size = new System.Drawing.Size(203, 356);
             this.panel1.TabIndex = 4;
-            // 
-            // btnConfirmFilters
-            // 
-            this.btnConfirmFilters.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConfirmFilters.Location = new System.Drawing.Point(147, 282);
-            this.btnConfirmFilters.Name = "btnConfirmFilters";
-            this.btnConfirmFilters.Size = new System.Drawing.Size(75, 63);
-            this.btnConfirmFilters.TabIndex = 4;
-            this.btnConfirmFilters.Text = "Bevestig";
-            this.btnConfirmFilters.UseVisualStyleBackColor = true;
-            this.btnConfirmFilters.Click += new System.EventHandler(this.btnConfirmFilters_Click);
             // 
             // listDishes
             // 
@@ -263,7 +254,6 @@ namespace GUI
         private System.Windows.Forms.Label lblIngredientFilter;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ListBox listDishes;
-        private System.Windows.Forms.Button btnConfirmFilters;
         private System.Windows.Forms.Label lblFilteredDishes;
         private System.Windows.Forms.ListBox listOrder;
         private System.Windows.Forms.Label lblOrderList;

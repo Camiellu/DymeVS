@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Business.Models;
 
-namespace Business.Filters
+namespace Business.Filter
 {
     public class AllergyFilter : IFilterPossibility
     {
@@ -12,10 +12,7 @@ namespace Business.Filters
             this.allergies = allergies;
         }
 
-        public void AddAllergy(Allergy allergy)
-        {
-            this.allergies.Add(allergy);
-        }
+
 
         public bool Filter(Dish dish)
         {

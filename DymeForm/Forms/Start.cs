@@ -1,18 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business;
 using Business.BusinessLogic;
-using Business.Models;
 using DataAccesLayer;
 
-namespace GUI
+namespace GUI.Forms
 {
     public partial class Start : Form
     {
@@ -24,17 +17,11 @@ namespace GUI
             InitializeComponent();
             controller.GetRestaurant(restaurantManager);
             lblWelcome.Text = $"Welkom bij {controller.GetRestaurantName()}!";
-            foreach (var m in controller.GetRestaurantMenus())
+            foreach (string name in controller.SetAllergyList())
             {
-                foreach (var d in m.Dishes)
+                if (!checkboxSelectAllergy.Items.Contains(name))
                 {
-                    foreach (var a in d.Allergies)
-                    {
-                        if (!checkboxSelectAllergy.Items.Contains(a))
-                        {
-                            checkboxSelectAllergy.Items.Add(a);
-                        }
-                    }
+                    checkboxSelectAllergy.Items.Add(name);
                 }
             }
         }
@@ -47,14 +34,14 @@ namespace GUI
             string firstName = txtFirstName.Text;
             string lastName = txtLastName.Text;
             DateTime dateOfBirth = dateTimePicker1.Value;
-            List<Allergy> allergies = new List<Allergy>();
-            foreach (Allergy a in checkboxSelectAllergy.CheckedItems)
+            List<string> allergyNames = new List<string>();
+            foreach (string allergyName in checkboxSelectAllergy.CheckedItems)
             {
-                allergies.Add(a);
+                allergyNames.Add(allergyName);
             }
             MenuForm menuForm = new MenuForm();
-            controller.AddGuest(firstName, lastName, dateOfBirth, allergies);
-            menuForm.controller = this.controller;
+            controller.AddGuest(firstName, lastName, dateOfBirth, allergyNames);
+            menuForm.Controller = this.controller;
             menuForm.Show();
             this.Hide();
         }
